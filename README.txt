@@ -1,0 +1,1 @@
+GitHub Pages: upload index.html to repository root, then Settings > Pages > Deploy from branch > main > /(root). PHP/MySQL admin cannot run on GitHub Pages.
