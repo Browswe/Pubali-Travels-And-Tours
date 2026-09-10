@@ -1,0 +1,9 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pubali Admin</title>
+<style>body{font-family:Arial,sans-serif;background:#eef6f1;margin:0;color:#17352a}.box{max-width:900px;margin:50px auto;padding:25px;background:#fff;border-radius:18px;box-shadow:0 8px 30px #0001}input,button{padding:12px;margin:6px 0;width:100%;box-sizing:border-box}button{background:#087443;color:white;border:0;border-radius:8px;font-weight:bold}.hidden{display:none}.row{padding:12px;border-bottom:1px solid #ddd}</style></head><body><div class="box" id="login"><h1>🔐 PUBALI Admin Dashboard</h1><input id="u" placeholder="Username"><input id="p" type="password" placeholder="Password"><button onclick="login()">Login</button><p id="err"></p></div><div class="box hidden" id="dash"><h1>Registration Dashboard</h1><p><b>নোট:</b> GitHub Pages-এ data shared database-এ সংরক্ষণ হয় না। এই demo browser-এর localStorage ব্যবহার করে।</p><button onclick="logout()">Logout</button><div id="list"></div></div>
+<script>
+const U="PUBALI",P="PUBALI6699";
+function login(){if(u.value===U&&p.value===P){loginBox.classList.add("hidden");dash.classList.remove("hidden");render()}else err.textContent="ভুল username বা password";}
+const loginBox=document.getElementById("login"),dash=document.getElementById("dash");
+function logout(){dash.classList.add("hidden");loginBox.classList.remove("hidden")}
+function render(){let a=JSON.parse(localStorage.getItem("pubali_regs")||"[]");list.innerHTML=a.length?a.map((x,i)=>`<div class="row"><b>${i+1}. ${x.name}</b><br>📞 ${x.phone}<br>📦 ${x.package}<br>🪪 ${x.passport||"-"}<br>🆔 ${x.nid||"-"}<br>🕘 ${x.time||""}</div>`).join(""):"কোনো registration নেই।"}
+</script></body></html>
